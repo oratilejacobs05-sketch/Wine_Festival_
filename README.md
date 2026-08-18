@@ -72,7 +72,7 @@ lock(_lockObject)
 {
     // Safe access to shared data
 }
-
+```
 
 This prevents race conditions when multiple tasks access festival data at the same time.
 
@@ -102,3 +102,20 @@ await Task.Delay(...)
 - Logging System
 - Unit Testing
 - Documentation
+
+
+### Project Architecture
+- Program.cs = Entry point and primary menu execution loop
+- Festival.cs = Core model representing the state of the festival
+- FestivalService.cs =Logic layer for organising workflow and services
+- Winebooth.cs= Class representing the vendor booths and details
+- WineStock.cs= Class representing the inventory of the wine and its qualities
+- attendees.cs= Class for attendees and managment
+- Events.cs = Event management
+- FileManager.cs = File input/output handler and used for loading app data
+- Logger.cs = Logging utility for error tracking
+- Display.cs = UI helper for rendering the text and console output
+- IConsumables.cs = Interface defining standard properties of consumable items
+- IReport.cs= Interface for making reports
+- Exception.cs = Exception classes for specific error handling
+- SimpleTests.cs= Test suite for verifying logic functionality 
