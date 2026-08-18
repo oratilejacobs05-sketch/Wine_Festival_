@@ -33,6 +33,63 @@ Wine Country Festival Control System
 - Processing Queue
 - Thread Safety
 - Random Failure Generator
+## Multithreading and Concurrency
+
+The system uses asynchronous Tasks to simulate real-time festival operations while keeping the application responsive.
+
+### Background Monitoring Loop
+
+A monitoring task runs independently of user input and performs periodic system checks every few seconds.
+
+Examples:
+
+- Monitor low wine stock
+- Monitor VIP attendee check-ins
+- Monitor booth activity
+
+### Processing Queue
+
+The system uses a queue structure to manage tasks in a First-In-First-Out (FIFO) order.
+
+Example queue operations:
+
+- Generate Sales Report
+- Check Inventory
+- Update Attendance Records
+
+### Random Failure Generator
+
+A background task periodically selects a random wine booth and simulates operational failures. This creates realistic festival scenarios and allows the system to react to changing conditions.
+
+### Thread Safety
+
+Shared resources are protected using lock statements.
+
+Example:
+
+```csharp
+lock(_lockObject)
+{
+    // Safe access to shared data
+}
+
+
+This prevents race conditions when multiple tasks access festival data at the same time.
+
+### Concurrency Model
+
+The system runs three background tasks:
+
+1. Monitoring Loop
+2. Processing Queue
+3. Random Failure Generator
+
+These tasks run concurrently using:
+Task.Run()
+//and periodically pause using:
+await Task.Delay(...)
+//to simulate real-time operations without freezing the console application.
+
 
 ### Person 3 – Events, UI & Exception Handling
 - Menu System
