@@ -65,14 +65,12 @@ A background task periodically selects a random wine booth and simulates operati
 
 Shared resources are protected using lock statements.
 
-Example:
 
-```csharp
 lock(_lockObject)
 {
     // Safe access to shared data
 }
-```
+
 
 This prevents race conditions when multiple tasks access festival data at the same time.
 
